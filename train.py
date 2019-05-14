@@ -90,6 +90,7 @@ def train():
 
     if args.visdom:
         import visdom
+        global viz # Solve NameError mistake
         viz = visdom.Visdom()
 
     ssd_net = build_ssd('train', cfg['min_dim'], cfg['num_classes'])
