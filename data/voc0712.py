@@ -17,12 +17,20 @@ if sys.version_info[0] == 2:
 else:
     import xml.etree.ElementTree as ET
 
+'''VOC_CLASSES = (  # always index 0
+    'hp', 'adidas_symbol', 'adidas_text', 'aldi',
+    'apple', 'becks_symbol', 'becks_text', 'bmw', 'carlsberg_symbol',
+    'carlsberg_text', 'chimay_symbol', 'chimay_text', 'cocacola',
+    'corona_symbol', 'corona_text', 'dhl',
+    'erdinger_symbol', 'erdinger_text', 'esso_symbol', 'esso_text', 
+    'fedex', 'ferrari', 'ford', 'fosters_symbol', 'fosters_text', 
+    'google', 'guinness_symbol', 'guinness_text', 'heineken', 'milka',
+    'nvidia_symbol', 'nvidia_text', 'paulaner_symbol', 'paulaner_text',
+    'pepsi_symbol', 'pepsi_text', 'rittersport', 'shell', 'singha_symbol',
+    'singha_text', 'starbucks', 'stellaartois_symbol', 'stellaartois_text', 'texaco',
+    'tsingtao_symbol', 'tsingtao_text', 'ups')'''
 VOC_CLASSES = (  # always index 0
-    'aeroplane', 'bicycle', 'bird', 'boat',
-    'bottle', 'bus', 'car', 'cat', 'chair',
-    'cow', 'diningtable', 'dog', 'horse',
-    'motorbike', 'person', 'pottedplant',
-    'sheep', 'sofa', 'train', 'tvmonitor')
+    'fosters_symbol', 'fosters_text')
 
 # note: if you used our download scripts, this should be right
 VOC_ROOT = osp.join(HOME, "CourseWork/data/VOCdevkit/")
@@ -95,7 +103,7 @@ class VOCDetection(data.Dataset):
     """
 
     def __init__(self, root,
-                 image_sets=[('2007', 'trainval'), ('2012', 'trainval')],
+                 image_sets=[('2007', 'trainval')],
                  transform=None, target_transform=VOCAnnotationTransform(),
                  dataset_name='VOC0712'):
         self.root = root
