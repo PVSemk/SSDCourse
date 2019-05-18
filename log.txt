@@ -1,0 +1,27 @@
+Training SSD on: VOC0712
+Using the specified args:
+Namespace(basenet='vgg16_reducedfc.pth', batch_size=8, cuda=True, dataset='VOC', dataset_root='/home/pavel/CourseWork/data/VOCdevkit/', gamma=0.1, lr=0.0001, momentum=0.9, num_workers=4, resume=None, save_folder='weights/', start_iter=0, visdom=False, weight_decay=0.0005)
+timer: 4.4917 sec.
+iter 0 || Loss: 29.7556 ||timer: 0.1057 sec.
+iter 10 || Loss: 24.7920 ||timer: 0.1059 sec.
+iter 20 || Loss: 20.2280 ||timer: 0.1059 sec.
+iter 30 || Loss: 19.0550 ||timer: 0.1070 sec.
+iter 40 || Loss: 18.7629 ||timer: 0.1061 sec.
+iter 50 || Loss: 18.4275 ||timer: 0.1085 sec.
+iter 60 || Loss: 18.5237 ||timer: 0.1048 sec.
+iter 70 || Loss: 18.4095 ||timer: 0.1062 sec.
+iter 80 || Loss: 17.9338 ||timer: 0.1061 sec.
+iter 90 || Loss: 18.3383 ||timer: 0.1116 sec.
+iter 100 || Loss: 17.6807 ||timer: 0.1070 sec.
+iter 110 || Loss: 16.5126 ||timer: 0.1067 sec.
+iter 120 || Loss: 15.2869 ||timer: 0.1115 sec.
+iter 130 || Loss: 14.4330 ||
+Training SSD on: VOC0712
+Using the specified args:
+Namespace(basenet='vgg16_reducedfc.pth', batch_size=8, cuda=True, dataset='VOC', dataset_root='/home/pavel/CourseWork/data/VOCdevkit/', gamma=0.1, lr=0.0001, momentum=0.9, num_workers=4, resume=None, save_folder='weights/', start_iter=120, visdom=False, weight_decay=0.0005)
+timer: 4.1880 sec.
+iter 120 || Loss: 31.8532 ||timer: 0.1083 sec.
+iter 130 || Loss: 25.4905 ||timer: 0.1077 sec.
+iter 140 || Loss: 19.4838 ||timer: 0.1060 sec.
+iter 150 || Loss: 21.2431 ||timer: 0.1079 sec.
+iter 160 || Loss: 18.3826 ||

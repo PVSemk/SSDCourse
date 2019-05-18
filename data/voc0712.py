@@ -17,7 +17,7 @@ if sys.version_info[0] == 2:
 else:
     import xml.etree.ElementTree as ET
 
-'''VOC_CLASSES = (  # always index 0
+VOC_CLASSES = (  # always index 0
     'hp', 'adidas_symbol', 'adidas_text', 'aldi',
     'apple', 'becks_symbol', 'becks_text', 'bmw', 'carlsberg_symbol',
     'carlsberg_text', 'chimay_symbol', 'chimay_text', 'cocacola',
@@ -28,9 +28,7 @@ else:
     'nvidia_symbol', 'nvidia_text', 'paulaner_symbol', 'paulaner_text',
     'pepsi_symbol', 'pepsi_text', 'rittersport', 'shell', 'singha_symbol',
     'singha_text', 'starbucks', 'stellaartois_symbol', 'stellaartois_text', 'texaco',
-    'tsingtao_symbol', 'tsingtao_text', 'ups')'''
-VOC_CLASSES = (  # always index 0
-    'fosters_symbol', 'fosters_text')
+    'tsingtao_symbol', 'tsingtao_text', 'ups')
 
 # note: if you used our download scripts, this should be right
 VOC_ROOT = osp.join(HOME, "CourseWork/data/VOCdevkit/")

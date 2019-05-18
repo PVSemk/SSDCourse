@@ -15,6 +15,7 @@ import torch.utils.data as data
 import numpy as np
 import argparse
 
+TRAIN_LOG = os.path.join(HOME, 'CourseWork/SSDCourse/log.txt')
 
 def str2bool(v):
     return v.lower() in ("yes", "true", "t", "1")
@@ -67,6 +68,10 @@ else:
 if not os.path.exists(args.save_folder):
     os.mkdir(args.save_folder)
 
+if os.path.exists(TRAIN_LOG) and not args.start_iter:
+    os.remove(TRAIN_LOG)
+
+TRAIN_LOG_STREAM = open(TRAIN_LOG, 'a')
 
 def train():
     if args.dataset == 'COCO':
@@ -132,8 +137,11 @@ def train():
 
     epoch_size = len(dataset) // args.batch_size
     print('Training SSD on:', dataset.name)
+    TRAIN_LOG_STREAM.write('Training SSD on: {}\n'.format(dataset.name))
     print('Using the specified args:')
+    TRAIN_LOG_STREAM.write('Using the specified args:\n')
     print(args)
+    TRAIN_LOG_STREAM.write(str(args) + '\n')
 
     step_index = 0
 
@@ -192,18 +200,21 @@ def train():
 
         if iteration % 10 == 0:
             print('timer: %.4f sec.' % (t1 - t0))
+            TRAIN_LOG_STREAM.write('timer: %.4f sec.\n' % (t1 - t0))
             print('iter ' + repr(iteration) + ' || Loss: %.4f ||' % (loss.item()), end=' ')
+            TRAIN_LOG_STREAM.write('iter ' + repr(iteration) + ' || Loss: %.4f ||' % (loss.item()))
 
         if args.visdom:
             update_vis_plot(iteration, loss_l.item(), loss_c.item(),
                             iter_plot, epoch_plot, 'append')
 
-        if iteration != 0 and iteration % 500 == 0:
+        if iteration != 0 and iteration % 5000 == 0:
             print('Saving state, iter:', iteration)
+            TRAIN_LOG_STREAM.write('Saving state, iter:{}\n'.format(iteration))
             torch.save(ssd_net.state_dict(), 'weights/ssd300_COCO_' +
                        repr(iteration) + '.pth')
     torch.save(ssd_net.state_dict(),
-               args.save_folder + '' + args.dataset + '.pth')
+               args.save_folder + 'ssd300_COCO_120000' + '.pth')
 
 
 def adjust_learning_rate(optimizer, gamma, step):
@@ -259,4 +270,10 @@ def update_vis_plot(iteration, loc, conf, window1, window2, update_type,
 
 
 if __name__ == '__main__':
+    start = time.time()
     train()
+    end = time.time()
+    print('Training time: {}'.format(end-start))
+    TRAIN_LOG_STREAM.write('Training time: {}\n'.format(end-start))
+    TRAIN_LOG_STREAM.close()
+
