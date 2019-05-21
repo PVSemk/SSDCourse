@@ -211,7 +211,7 @@ def train():
         if iteration != 0 and iteration % 2000 == 0:
             print('Saving state, iter:', iteration)
             TRAIN_LOG_STREAM.write('Saving state, iter:{}\n'.format(iteration))
-            torch.save(ssd_net.state_dict(), args.save_folder +
+            torch.save(ssd_net.state_dict(), args.save_folder + 'ssd300_LOGO_' +
                        repr(iteration) + '.pth')
     torch.save(ssd_net.state_dict(),
                args.save_folder + 'ssd300_LOGO_40000' + '.pth')
