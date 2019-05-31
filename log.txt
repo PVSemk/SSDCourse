@@ -1,6 +1,0 @@
-Training SSD on: VOC0712
-Using the specified args:
-Namespace(basenet='vgg16_reducedfc.pth', batch_size=32, cuda=True, dataset='VOC', dataset_root='/home/pavel/CourseWork/data/VOCdevkit/', gamma=0.1, lr=0.001, momentum=0.9, num_workers=4, resume=None, save_folder='weights/', start_iter=0, visdom=False, weight_decay=0.0005)
-timer: 7.7314 sec.
-iter 0 || Loss: 29.1864 ||timer: 0.3053 sec.
-iter 10 || Loss: 20.2566 ||Saving state, iter:10
